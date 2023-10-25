@@ -70,15 +70,15 @@ pipeline {
 	 }
 
 	    stage("trivy Scan"){
-		    steps{
-			    script{
+		    steps {
+			    script {
 				sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image atulguptalko/register-app-pipeline:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
 			    }
 		    }
 	}
 
 	     stage("clean Artifacts"){
-		     setps{
+		     setps {
 			     script {
 				     sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
 				     sh "docker rmi ${IMAGE_NAME}:latest"
