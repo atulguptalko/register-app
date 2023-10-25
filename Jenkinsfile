@@ -77,7 +77,7 @@ pipeline {
 		    }
 	}
 
-	     stage("clean Artifacts"){
+	     stage('clean Artifacts'){
 		     setps {
 			     script {
 				     sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
